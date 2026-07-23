@@ -47,15 +47,15 @@ function Contact() {
           <h3>Get In Touch</h3>
 
           <p>
-            <FaEnvelope /> Email: aashutoshsoni2019@gmail.com
+            <FaEnvelope /> <span>Email: aashutoshsoni2019@gmail.com</span>
           </p>
 
           <p>
-            <FaPhone /> Phone: +91 9755628076
+            <FaPhone /> <span>Phone: +91 9755628076</span>
           </p>
 
           <p>
-            <FaMapMarkerAlt /> Raipur, Chhattisgarh
+            <FaMapMarkerAlt /> <span>Raipur, Chhattisgarh</span>
           </p>
         </div>
 

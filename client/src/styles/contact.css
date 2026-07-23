@@ -79,6 +79,17 @@
     .contact-info{
         text-align:center;
     }
+
+    /* 👇 नया — icon को सही तरीके से align करता है */
+    .contact-info p{
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .contact-info p svg{
+        font-size: 20px;
+    }
 }
 
 .social-icons{
