@@ -32,9 +32,14 @@
 }
 
 @media (max-width:768px){
-    /* Corrected selector from .skills-grid to .skills-container */
+    .skills{
+        padding: 50px 20px;   /* 👈 add this */
+    }
     .skills-container{
         grid-template-columns: 1fr 1fr;
     }
-
 }
+
+/* skills.css */
+body.dark .skills{ background:#0f172a; }
+body.dark .skills h2{ color:#ffffff; }

@@ -20,6 +20,7 @@
     justify-content:center;
     gap:30px;
     margin-top:50px;
+    flex-wrap: wrap;
 }
 
 .card{
@@ -35,8 +36,28 @@
     color:#2563eb;
     font-size:30px;
 }
-/* Corrected selector from .about-card to .card and merged duplicate rules */
+
 .card:hover{
     transform:translateY(-8px);
     box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Dark mode */
+body.dark .about{ background:#0f172a; }
+body.dark .about h2{ color:#ffffff; }
+body.dark .about p{ color:#e5e7eb; }
+body.dark .card{
+    background:#1e293b;
+    box-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
+/* Mobile — हमेशा सबसे आख़िर में */
+@media (max-width: 768px){
+    .about{
+        padding: 60px 20px;
+    }
+    .card{
+        width: 100%;
+        max-width: 280px;
+    }
 }
