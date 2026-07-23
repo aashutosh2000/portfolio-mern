@@ -1,0 +1,40 @@
+.skills{
+    padding:80px;
+    text-align:center;
+}
+
+.skills h2{
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    max-width:900px;
+    margin:auto;
+}
+
+.skill-card{
+    padding:25px;
+    background:#2563eb;
+    color:white;
+    font-size:22px;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    cursor:pointer;
+}
+
+.skill-card:hover{
+    /* Combined scale and translateY for a better hover effect */
+    transform: translateY(-8px) scale(1.05);
+}
+
+@media (max-width:768px){
+    /* Corrected selector from .skills-grid to .skills-container */
+    .skills-container{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

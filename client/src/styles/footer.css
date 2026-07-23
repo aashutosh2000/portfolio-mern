@@ -1,0 +1,44 @@
+/* Footer */
+.footer {
+    background: #111827;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.footer h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer p {
+    font-size: 1rem;
+    color: #d1d5db;
+    margin: 8px 0;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #00bcd4;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff4d6d;
+}
+
+.footer-copy {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    border-top: 1px solid #374151;
+    padding-top: 15px;
+}

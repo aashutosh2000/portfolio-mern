@@ -1,0 +1,148 @@
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+  background-color: #0f172a;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Right Side (Menu + Theme Button) */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Navigation Links */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.active-link {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* Menu Button */
+
+.menu-icon {
+  display: none;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Theme Button */
+
+.theme-btn {
+  border: none;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 18px 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+
+    background: #0f172a;
+
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+    display: block;
+    width: 100%;
+  }
+} 
