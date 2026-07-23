@@ -1,16 +1,98 @@
-# React + Vite
+# 💼 Ashu Portfolio | MERN Stack Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and fully responsive personal portfolio website built using **React.js + Vite**. It showcases my skills, projects, and contact information with a clean UI, dark mode, smooth animations, and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+Coming Soon...
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📸 Preview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Add your portfolio screenshot here after deployment.
+
+---
+
+## ✨ Features
+
+- ✅ Responsive Design
+- 🌙 Dark / Light Mode
+- 🎨 Modern UI
+- 📱 Mobile Friendly
+- ⚡ Smooth Scroll
+- 🎬 AOS Animations
+- 📂 Projects Section
+- 📧 Contact Form (EmailJS)
+- ⬆ Scroll To Top Button
+
+---
+
+## 🛠 Tech Stack
+
+- React.js
+- Vite
+- JavaScript (ES6)
+- HTML5
+- CSS3
+- EmailJS
+- React Icons
+- AOS Animation
+
+---
+
+## 📂 Folder Structure
+
+```text
+client/
+│
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## ⚙ Installation
+
+```bash
+git clone https://github.com/aashutosh2000/portfolio-mern.git
+
+cd portfolio-mern/client
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 📬 Contact
+
+**Ashutosh Soni**
+
+📧 Email: aashutoshsoni2019@gmail.com
+
+📍 Raipur, Chhattisgarh
+
+---
+
+## ⭐ If you like this project
+
+Give this repository a ⭐ on GitHub.
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ by **Ashutosh Soni**
