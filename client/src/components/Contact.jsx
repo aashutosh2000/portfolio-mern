@@ -8,6 +8,8 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 function Contact() {
  const [formData, setFormData] = useState({
   name: "",
@@ -27,9 +29,9 @@ const handleChange = (e) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/contact",
-      formData
-    );
+  `${API}/api/contact`,
+  formData
+);
 
     alert(res.data.message);
 
@@ -40,9 +42,14 @@ const handleChange = (e) => {
     });
 
   } catch (error) {
-    alert("Something went wrong");
-    console.log(error);
+  console.error(error);
+
+  if (error.response) {
+    alert(error.response.data.message);
+  } else {
+    alert("Server is not responding.");
   }
+}
 };
 
   return (
