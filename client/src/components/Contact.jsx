@@ -1,6 +1,7 @@
-import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import axios from "axios";
+import { useState } from "react";
 import "../styles/contact.css";
+
 import {
   FaEnvelope,
   FaPhone,
@@ -8,29 +9,41 @@ import {
 } from "react-icons/fa";
 
 function Contact() {
-  const form = useRef();
+ const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: "",
+});
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+const handleChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
 
-    emailjs
-      .sendForm(
-        "service_a72ll58", // Replace with your Service ID
-        "template_pg1s9hm", // Replace with your Template ID
-        form.current,
-        "QzW8hzu5EgK09Oyae" // Replace with your Public Key
-      )
-      .then(
-        () => {
-          alert("✅ Message Sent Successfully");
-          form.current.reset(); // Clear form after sending
-        },
-        (error) => {
-          console.log(error);
-          alert("❌ Something Went Wrong");
-        }
-      );
-  };
+  const sendMessage = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/contact",
+      formData
+    );
+
+    alert(res.data.message);
+
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+  } catch (error) {
+    alert("Something went wrong");
+    console.log(error);
+  }
+};
 
   return (
     <section className="contact" id="contact" data-aos="fade-left">
@@ -60,18 +73,22 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <form onSubmit={sendMessage} className="contact-form">
           <input
             type="text"
-            name="user_name"
+            name="name"
             placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
 
           <input
             type="email"
-            name="user_email"
+            name="email"
             placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
 
@@ -79,6 +96,8 @@ function Contact() {
             name="message"
             rows="6"
             placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
             required
           ></textarea>
 
