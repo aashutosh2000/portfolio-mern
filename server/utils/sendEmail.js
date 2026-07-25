@@ -1,45 +1,51 @@
-const nodemailer = require("nodemailer");
-
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 465,
-  secure: true,
-
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-
-  connectionTimeout: 30000,
-  greetingTimeout: 30000,
-  socketTimeout: 30000,
-});
+const axios = require("axios");
 
 const sendEmail = async (name, email, message) => {
-  console.log("EMAIL_USER:", process.env.EMAIL_USER);
-  console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Missing");
+  try {
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Portfolio Contact Form",
+          email: "aashutoshsoni2000@gmail.com",
+        },
+        to: [
+          {
+            email: "aashutoshsoni2000@gmail.com",
+          },
+        ],
+        replyTo: {
+          email: email,
+        },
+        subject: "📩 New Portfolio Contact",
+        htmlContent: `
+          <h2>New Contact Form Submission</h2>
 
-  await transporter.verify();
+          <p><strong>Name:</strong> ${name}</p>
 
-  console.log("SMTP Connected");
+          <p><strong>Email:</strong> ${email}</p>
 
-  await transporter.sendMail({
-    from: '"Portfolio" <aashutoshsoni2000@gmail.com>',
-    to: "aashutoshsoni2000@gmail.com",
-    subject: "New Contact",
+          <p><strong>Message:</strong></p>
 
-    html: `
-      <h2>New Contact</h2>
+          <p>${message}</p>
+        `,
+      },
+      {
+        headers: {
+          "api-key": process.env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-      <p>Name : ${name}</p>
-
-      <p>Email : ${email}</p>
-
-      <p>Message : ${message}</p>
-    `,
-  });
-
-  console.log("Mail Sent");
+    console.log("✅ Email Sent Successfully");
+  } catch (error) {
+    console.error(
+      "Brevo Error:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
 };
 
 module.exports = sendEmail;
