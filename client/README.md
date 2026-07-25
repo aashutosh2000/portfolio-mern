@@ -4,15 +4,36 @@ A modern and fully responsive personal portfolio website built using **React.js 
 
 ---
 
-## 🚀 Live Demo
+# MERN Portfolio
 
-Coming Soon...
+## Features
 
----
+- Responsive Design
+- React
+- Node.js
+- Express
+- MongoDB Atlas
+- Contact Form
+- Brevo Email API
+- Vercel Deployment
+- Render Deployment
 
-## 📸 Preview
+## Live Demo
 
-> Add your portfolio screenshot here after deployment.
+Frontend:
+https://portfolio-mern-lake.vercel.app
+
+Backend:
+https://portfolio-backend-wtcq.onrender.com
+
+## Tech Stack
+
+React
+Express
+MongoDB
+Node
+Brevo
+Axios
 
 ---
 
