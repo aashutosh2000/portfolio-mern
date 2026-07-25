@@ -31,21 +31,55 @@
 // module.exports = sendEmail;
 
 
+// const nodemailer = require("nodemailer");
+
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+//   family: 4,
+// });
+
+// const sendEmail = async (name, email, message) => {
+  
+//   await transporter.sendMail({
+//     from: process.env.EMAIL_USER,
+//     to: process.env.EMAIL_USER,
+//     subject: "📩 New Portfolio Contact",
+
+//     html: `
+//       <h2>New Contact</h2>
+
+//       <p><b>Name:</b> ${name}</p>
+
+//       <p><b>Email:</b> ${email}</p>
+
+//       <p><b>Message:</b></p>
+
+//       <p>${message}</p>
+//     `,
+//   });
+// };
+
+// module.exports = sendEmail;
+
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  family: 4,
 });
 
 const sendEmail = async (name, email, message) => {
-  
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
