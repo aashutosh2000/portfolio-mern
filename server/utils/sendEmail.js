@@ -1,102 +1,47 @@
-// const nodemailer = require("nodemailer");
-
-// const sendEmail = async (name, email, message) => {
-//   const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//       user: process.env.EMAIL_USER,
-//       pass: process.env.EMAIL_PASS,
-//     },
-//   });
-
-//   await transporter.sendMail({
-//     from: process.env.EMAIL_USER,
-//     to: process.env.EMAIL_USER,
-//     subject: "📩 New Portfolio Contact Message",
-
-//     html: `
-//       <h2>New Contact Form Submission</h2>
-
-//       <p><strong>Name:</strong> ${name}</p>
-
-//       <p><strong>Email:</strong> ${email}</p>
-
-//       <p><strong>Message:</strong></p>
-
-//       <p>${message}</p>
-//     `,
-//   });
-// };
-
-// module.exports = sendEmail;
-
-
-// const nodemailer = require("nodemailer");
-
-// const transporter = nodemailer.createTransport({
-//   host: "smtp.gmail.com",
-//   port: 465,
-//   secure: true,
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-//   family: 4,
-// });
-
-// const sendEmail = async (name, email, message) => {
-  
-//   await transporter.sendMail({
-//     from: process.env.EMAIL_USER,
-//     to: process.env.EMAIL_USER,
-//     subject: "📩 New Portfolio Contact",
-
-//     html: `
-//       <h2>New Contact</h2>
-
-//       <p><b>Name:</b> ${name}</p>
-
-//       <p><b>Email:</b> ${email}</p>
-
-//       <p><b>Message:</b></p>
-
-//       <p>${message}</p>
-//     `,
-//   });
-// };
-
-// module.exports = sendEmail;
-
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
+  requireTLS: true,
+
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+
+  tls: {
+    rejectUnauthorized: false,
+    family: 4,
+  },
 });
 
 const sendEmail = async (name, email, message) => {
+  console.log("EMAIL_USER:", process.env.EMAIL_USER);
+  console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Missing");
+
+  await transporter.verify();
+
+  console.log("SMTP Connected");
+
   await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: "📩 New Portfolio Contact",
+    from: '"Portfolio" <aashutoshsoni2000@gmail.com>',
+    to: "aashutoshsoni2000@gmail.com",
+    subject: "New Contact",
 
     html: `
       <h2>New Contact</h2>
 
-      <p><b>Name:</b> ${name}</p>
+      <p>Name : ${name}</p>
 
-      <p><b>Email:</b> ${email}</p>
+      <p>Email : ${email}</p>
 
-      <p><b>Message:</b></p>
-
-      <p>${message}</p>
+      <p>Message : ${message}</p>
     `,
   });
+
+  console.log("Mail Sent");
 };
 
 module.exports = sendEmail;
