@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.send("Backend Running 🚀");
 });
 
+app.get("/test", (req, res) => {
+  res.send("Backend Working");
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
