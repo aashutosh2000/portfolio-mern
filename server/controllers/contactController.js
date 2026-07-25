@@ -22,11 +22,13 @@ const saveContact = async (req, res) => {
       message: "Message Sent Successfully",
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    console.error(error.message);
+    console.error(error.stack);
 
     res.status(500).json({
-      success: false,
-      message: "Something went wrong",
+        success:false,
+        message:error.message
     });
   }
 };
